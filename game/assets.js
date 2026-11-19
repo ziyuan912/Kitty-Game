@@ -15,14 +15,6 @@ levelCompleteTitleImage.onerror = function() {
 };
 levelCompleteTitleImage.src = "assets/backgrounds/level complete.png";
 
-const layers = [
-    document.getElementById("parallax-mountain-bg"),
-    document.getElementById("parallax-mountain-montain-far"),
-    document.getElementById("parallax-mountain-mountains"),
-    document.getElementById("parallax-mountain-trees"),
-    document.getElementById("parallax-mountain-foreground-trees")
-];
-
 const tileImages = new Map();
 
 var getTileImage = function(tileNumber) {
@@ -45,8 +37,6 @@ var getTileImage = function(tileNumber) {
 const heroAttackAnimationRight  =    Array.from({ length: 8 }, function(_, index) {
     return document.getElementById("hero-attack-right-" + String(index).padStart(2, "0"));
 });
-const heroHurtAnimationRight    =    document.getElementById("hero-hurt-right");
-
 var getFrameImages = function(prefix, frameCount) {
     return Array.from({ length: frameCount }, function(_, index) {
         return document.getElementById(prefix + "-" + String(index).padStart(2, "0"));
@@ -77,8 +67,6 @@ const HERO_ANIMATION = Object.freeze({
     JUMP_RIGHT: 5,
     ATTACK_LEFT: 6,
     ATTACK_RIGHT: 7,
-    HURT_LEFT: 8,
-    HURT_RIGHT: 9,
 });
 
 let heroAnimations = [
@@ -90,8 +78,6 @@ let heroAnimations = [
     { frames: getFrameImages("hero-jump-right", 8), fps: 10 },
     { frames: heroAttackAnimationRight, fps: 10, mirrorX: true },
     { frames: heroAttackAnimationRight, fps: 10 },
-    { sheet: heroHurtAnimationRight, frameCount: 1, frameWidth: 100, frameHeight: 59, fps: 10, mirrorX: true },
-    { sheet: heroHurtAnimationRight, frameCount: 1, frameWidth: 100, frameHeight: 59, fps: 10 },
 ]
 
 var getAnimationFrame = function(animationIndex, elapsedMs) {

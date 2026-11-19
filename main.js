@@ -276,7 +276,7 @@ var gameLoop = function(interval) {
     hero.renderX = hero.levelX - scrollX;
     hero.renderY = hero.levelY - scrollY;
 
-    drawLevelBackground(levelBackgrounds[currentLevelIndex], scrollX);
+    drawLevelBackground(levelBackgrounds[currentLevelIndex]);
 
     drawLevelTiles(
         currentLevel,

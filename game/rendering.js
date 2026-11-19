@@ -1,6 +1,6 @@
 /* Canvas rendering helpers. */
 
-var drawLevelBackground = function(background, backgroundScrollX) {
+var drawLevelBackground = function(background) {
     if (background &&
         background.complete &&
         background.naturalWidth > 0) {
@@ -20,28 +20,8 @@ var drawLevelBackground = function(background, backgroundScrollX) {
         return;
     }
 
-    /* Draw parallax until this level's background image is ready. */
-    for (var i = 0; i < layers.length; i++) {
-        if (i === 0) {
-            context.drawImage(layers[i], 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-        } else {
-            var sx = 0.0050 * backgroundScrollX * Math.pow(2, i);
-            if (i === 1) sx -= 0;
-            else if (i === 4) sx -= Math.floor(sx / 263) * 263;
-            else sx -= Math.floor(sx / 272) * 272;
-            context.drawImage(
-                layers[i],
-                sx,
-                0,
-                272,
-                160,
-                0,
-                0,
-                SCREEN_WIDTH,
-                SCREEN_HEIGHT
-            );
-        }
-    }
+    context.fillStyle = "#18243b";
+    context.fillRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 }
 
 var drawSunglassesOverlay = function() {

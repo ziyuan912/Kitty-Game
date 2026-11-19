@@ -9,7 +9,7 @@ const LEVEL_COMPLETE_TITLE_SOURCE = {
 
 var demoCompleteScreen = function(now, oldTime) {
     const hasNextLevel = currentLevelIndex < levels.length - 1;
-    drawLevelBackground(levelBackgrounds[currentLevelIndex], 0);
+    drawLevelBackground(levelBackgrounds[currentLevelIndex]);
 
     if (levelCompleteTitleImage.complete &&
         levelCompleteTitleImage.naturalWidth > 0) {
